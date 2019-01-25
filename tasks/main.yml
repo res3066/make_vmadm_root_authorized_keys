@@ -1,0 +1,10 @@
+---
+# tasks file for rs-make-vmadm-root-authorized-keys
+
+- name: regenerate root_authorized_keys variable for vmadm
+  local_action: shell {{ role_path }}/files/mk_root_authorized_keys.sh
+  args:
+    chdir: "{{ host_root_ssh_keys }}"
+
+...
+
