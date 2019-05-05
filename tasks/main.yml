@@ -1,10 +1,15 @@
 ---
 # tasks file for rs-make-vmadm-root-authorized-keys
 
+- name: check to see if there is a local overrides directory - host_root_ssh_keys
+  local_action: stat path={{ host_root_ssh_keys }}
+  register: p
+
 - name: regenerate root_authorized_keys variable for vmadm
   local_action: shell {{ role_path }}/files/mk_root_authorized_keys.sh
   args:
     chdir: "{{ host_root_ssh_keys }}"
+  when: p.stat.isdir is defined and p.stat.isdir
 
 ...
 
