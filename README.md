@@ -1,7 +1,7 @@
 Role Name
 =========
 
-rs-make-vmadm-root-authorized-keys
+make_vmadm_root_authorized_keys
 
 Makes a variable (to be imported and passed in to the vmadm role as customer_metadata.root_authorized_keys) out of a directory full of multiple username.pub files
 
@@ -46,7 +46,7 @@ Example Playbook
 ```yaml
     - hosts: servers
       roles:
-         - rs-make-vmadm-root-authorized-keys
+         _ make_vmadm_root_authorized_keys
 ```
 
 License
